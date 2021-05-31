@@ -1,24 +1,7 @@
 <!DOCTYPE html>
 <html>
  
-<head>
-<script> 
-function setUserAgent(window, userAgent) {
-    if (window.navigator.userAgent != userAgent) {
-        var userAgentProp = { get: function () { return userAgent; } };
-        try {
-            Object.defineProperty(window.navigator, 'userAgent', userAgentProp);
-        } catch (e) {
-            window.navigator = Object.create(navigator, {
-                userAgent: userAgentProp
-            });
-        }
-    }
-} 
-</script>
-</head>
- 
- <body style="margin:0px;padding:0px;overflow:hidden">
+<body style="margin:0px;padding:0px;overflow:hidden">
     <iframe src="https://redyajad2.mywire.org/embed/833544366479769600?defaultchannel=833544368240459788&lang=es_ES&sametarget=true&scrollbartheme=minimal-dark&theme=DiscordDark&fixedsidenav=true" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
 </body>
  
