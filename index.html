@@ -1,78 +1,8 @@
 <!DOCTYPE html>
 <html>
-<div id="fill">
-<iframe source="https://redyajad2.mywire.org/embed/833544366479769600?defaultchannel=833544368240459788&lang=es_ES&sametarget=true&scrollbartheme=minimal-dark&theme=DiscordDark&fixedsidenav=true"></iframe>
-</div>
 
- <style>
-body {
-  padding: 0;
-  margin: 0;
-}
-
-#fill {
-  width: 900px;
-  height: 1280px;
-  border: 1px solid red;
-}
-</style> 
- 
-<script>
- function fillDiv(div, proportional) {
-  var currentWidth = div.outerWidth();
-  var currentHeight = div.outerHeight();
-
-  var availableHeight = window.innerHeight;
-  var availableWidth = window.innerWidth;
-
-  var scaleX = availableWidth / currentWidth;
-  var scaleY = availableHeight / currentHeight;
-
-  if (proportional) {
-    scaleX = Math.min(scaleX, scaleY);
-    scaleY = scaleX;
-  }
-
-  var translationX = Math.round((availableWidth - (currentWidth * scaleX)) / 2);
-  var translationY = Math.round((availableHeight - (currentHeight * scaleY)) / 2);
-
-  div.css({
-    "position": "fixed",
-    "left": "0px",
-    "top": "0px",
-    "-webkit-transform": "translate(" + translationX + "px, "
-                                      + translationY + "px) scale3d("
-                                      + scaleX + ", " + scaleY + ", 1)",
-    "-webkit-transform-origin": "0 0"
-  });
-}
-</script>
- 
-<script>
- function initialize() {
-  var div = $("#fill");
-  fillDiv(div, true);
-
-  if ("onorientationchange" in window) {
-    console.log("Using orientationchange");
-    // There seems to be a bug in some Android variants such that the
-    // metrics like innerHeight and outerHeight (used in fillDiv above)
-    // are not updated when the orientationEvent is triggered. The
-    // half-second delay gives the browser a chance to update the
-    // metrics before rescaling the div.
-    $(window).bind("orientationchange", function() { setTimeout(function() { fillDiv(div, true); }, 500) });
-  } else if ("ondeviceorientation" in window) {
-    console.log("Using deviceorientation");
-    // Unlike the event above this not limited to a horzontal/vertical
-    // flip and will trigger for any device orientation movement
-    $(window).bind("deviceorientation", function() { setTimeout(function() { fillDiv(div, true); }, 500) });
-  else {
-    console.log("No orientation supported, fallback to resize");
-    $(window).bind("resize", function() { fillDiv(div, true); });
-  }
-}
-
-$(window).load(initialize);
-</script> 
+ <body style="margin:0px;padding:0px;overflow:hidden">
+    <iframe src="https://redyajad2.mywire.org/embed/833544366479769600?defaultchannel=833544368240459788&lang=es_ES&sametarget=true&scrollbartheme=minimal-dark&theme=DiscordDark&fixedsidenav=true" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
+</body>
  
 </html>
