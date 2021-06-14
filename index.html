@@ -2,6 +2,9 @@
 <html>
 
 <head>
+<meta http-Equiv="Cache-Control" Content="no-cache" />
+<meta http-Equiv="Pragma" Content="no-cache" />
+<meta http-Equiv="Expires" Content="0" />
 <link rel="shortcut icon" type="image/x-icon" href="https://redyajad.weebly.com/files/theme/images/favicon.ico"> 
  
 <script>
@@ -12,9 +15,26 @@ viewPortTag.content = "width=device-width; initial-scale=1.0; maximum-scale=1.0;
 window.parent.document.getElementsByTagName('head')[0].appendChild(viewPortTag);
 </script>
 </head>
- 
+
 <body style="margin:0px;padding:0px;overflow:hidden">
-    <iframe src="https://redyajad2.mywire.org/embed/833544366479769600?defaultchannel=833544368240459788&lang=es_ES&sametarget=true&scrollbartheme=minimal-dark&theme=DiscordDark&fixedsidenav=true" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
+
+<iframe id="output" src="https://redyajad2.mywire.org/embed/833544366479769600?defaultchannel=833544368240459788&lang=es_ES&sametarget=true&scrollbartheme=minimal-dark&theme=DiscordDark&fixedsidenav=true" frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" height="100%" width="100%"></iframe>
+    
+<script type="text/javascript">
+ var eventMethod = window.addEventListener
+ ? "addEventListener"
+ : "attachEvent";
+ var eventer = window[eventMethod];
+ var messageEvent = eventMethod === "attachEvent"
+ ? "onmessage"
+ : "message";
+ eventer(messageEvent, function (e) {
+ //data you receive from parent is stored inside e.data
+ $('#output').text(e.data);
+ });
+
+</script>
+
 </body>
- 
+
 </html>
